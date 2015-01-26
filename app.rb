@@ -3,6 +3,6 @@ require 'sinatra'
 
 class MyWebApp < Sinatra::Base
   get '/' do
-    "Copyright 2014-#{ Time.now.year } Brandon Sartele"
+    send_file 'views/index.html'
   end
 end
