@@ -1,14 +1,22 @@
 
       <div class="row">
         <div class="col-md-6">
-          <h2>Swiggity Swooty</h2>
-          <p>lemme get dat booty</p>
-          <br />
-          <img src="images/deer.jpg" alt="deer"/>
+          <%
+            timeDisplayMonth = @time.month
+            timeDisplayYear = @time.year
+          %>
+
+          <h1>Holidays for <%= timeDisplayMonth  %>, <%= timeDisplayYear %></h1>
+
+          <% @holidays.each do |holiday| %>
+            <%= holiday[0]["name"] %></br>
+          <% end %>
+
+          <h1>Holidays for Brandon's Birthday month 2/24/1993</h1>
+
+          <% @birthdayHolidays.each do |holiday| %>
+            <%= holiday[0]["name"] %> </br>
+          <% end %>
+
         </div>
-        <div class="col-md-6">
-          <h2>My life is dope</h2>
-          <p>and i do dope shit</p>
-          <br />
-          <img src="images/dope.jpg" alt="dope"/>
-        </div>
+      </div>
