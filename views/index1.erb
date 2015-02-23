@@ -4,7 +4,7 @@
             <div class="form-group">
               <label for="country" class="col-sm-2 control-label">Country</label>
               <div class="col-sm-10">
-                <select class="form-control" id="country" name="country" placeholder="File Type">
+                <select class="form-control" id="country" name="country">
                   <option <%= 'selected="selected"' if params['country'].to_i == 'BE' %>>BE</option>
                   <option <%= 'selected="selected"' if params['country'] == 'BR' %>>BR</option>
                   <option <%= 'selected="selected"' if params['country'] == 'GB' %>>GB</option>
@@ -16,7 +16,7 @@
             <div class="form-group">
               <label for="month" class="col-sm-2 control-label">Month</label>
               <div class="col-sm-10">
-                <select class="form-control" id="month" name="month" placeholder="Month">
+                <select class="form-control" id="month" name="month">
                   <option value="1" <%= 'selected="selected"' if params['month'].to_i == 1 %>>January</option>
                   <option value="2" <%= 'selected="selected"' if params['month'].to_i == 2 %>>February</option>
                   <option value="3" <%= 'selected="selected"' if params['month'].to_i == 3 %>>March</option>
@@ -35,7 +35,7 @@
             <div class="form-group">
               <label for="date" class="col-sm-2 control-label">Date</label>
               <div class="col-sm-10">
-                <input type="number" class="form-control" id="date" name="date" placeholder="Year" value=<%= @params['date'] %> />
+                <input type="number" class="form-control" id="date" name="date" placeholder="Year" value=<%= params['month'] if params.any? else '0'  %> />
               </div>
             </div>
             <button type="submit">Push this shit</button>
