@@ -11,28 +11,16 @@ class MyWebApp < Sinatra::Base
     holidayArray = []
     birthdayMonthArray = []
     i = 1
-    while i <= daysInMonth[time.month]
-      holiday = HolidApi.get(country: 'us', year: time.year, month: time.month, day: i)
-      if  holiday[0] != nil
-        holidayArray.push(holiday)
+    if(params.any?)
+      while i <= daysInMonth[params['month'].to_i]
+        holiday = HolidApi.get(country: params['country'], year: params['date'], month: params['month'], day: i)
+        if  holiday[0] != nil
+          holidayArray.push(holiday)
+        end
+        i += 1
       end
-      i += 1
-    end
-    i = 1
-    while i <= daysInMonth[2]
-      holiday = HolidApi.get(country: 'us', year: 1993, month: 2, day: i)
-      if  holiday[0] != nil
-        birthdayMonthArray.push(holiday)
-      end
-      if i == 24
-        birthday = [{"name"=> "Brandon's Birthday (Yes it qualifies as a national holiday)", 'country'=> "US", 'date'=> "1993-02-24"}]
-        birthdayMonthArray.push(birthday)
-      end
-      i += 1
     end
     @holidays = holidayArray
-    @birthdayHolidays = birthdayMonthArray
-    @time = time
     erb :index1
   end
 end
