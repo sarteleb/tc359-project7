@@ -35,7 +35,7 @@
             <div class="form-group">
               <label for="date" class="col-sm-2 control-label">Date</label>
               <div class="col-sm-10">
-                <input type="number" class="form-control" id="date" name="date" placeholder="Year" value=<%= params['month'] if params.any? else '0'  %> />
+                <input type="number" class="form-control" id="date" name="date" placeholder="Year" value=<%= @params['date'] %> />
               </div>
             </div>
             <button type="submit">Push this shit</button>
